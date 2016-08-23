@@ -1,5 +1,5 @@
-require "redd/version"
+require 'redd/version'
 
+# The entrypoint for Redd
 module Redd
-  # Your code goes here...
 end
