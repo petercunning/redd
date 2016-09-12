@@ -1,0 +1,37 @@
+# frozen_string_literal: true
+
+source 'https://rubygems.org'
+
+# Redd is the reddit client. The following line loads 'redd/bot', which makes
+# things more convenient by auto-loading or setting up automatically.
+gem 'redd', '~> 0.8', require: 'redd/bot'
+
+# ActiveSupport extends Ruby's core classes with fancy methods.
+# Redd doesn't rely on it, so you don't have to load it if you don't need it.
+# See: http://guides.rubyonrails.org/active_support_core_extensions.html
+gem 'activesupport', '~> 5.0', require: 'active_support/all'
+
+# With reddit bots, you find yourself writing a lot of text that needs to be
+# interspersed with a link here or a username there. A templating engine does
+# alleviate a lot of the troubles with inlining huge strings in your code.
+gem 'mustache', '~> 1.0'
+
+# The Reddit API is weird sometimes. To avoid debugging hell, just call `byebug`
+# to jump into a debugger console at that point in the code.
+#
+# P.S. if you're having weird issues with Redd itself, please consider
+# submitting an issue to "avinashbot/redd"!
+gem 'byebug', '~> 9.0'
+
+# It's a good idea to store some state to make sure you don't reply to comments
+# twice or forget a reminder!
+#
+# Daybreak is a super-simple embedded database that's not super active, but is
+# still a good database for testing (or good enough for real usage, depending
+# on your use case).
+gem 'daybreak', '~> 0.3'
+
+# Dotenv loads sensitive variables (e.g. client_id, secret) from a .env file
+# instead of from a source file to avoid accidentally committing your code to
+# GitHub (facepalm).
+gem 'dotenv', '~> 2.1', require: false

@@ -1,3 +1,6 @@
+# Never ever ever ever commit a .env file.
+.env
+
 /.bundle/
 /.yardoc
 /Gemfile.lock
