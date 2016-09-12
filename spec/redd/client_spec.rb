@@ -8,6 +8,10 @@ describe Redd::Client do
       def hello
         request(:get, '/hello')
       end
+
+      def world
+        json(:get, '/world')
+      end
     end
   end
 
@@ -28,5 +32,13 @@ describe Redd::Client do
         expect(request_stub).to have_been_requested
       end
     end
+  end
+
+  it "raises an error if JSON was expected but JSON wasn't returned" do
+    stub_request(:get, 'https://www.myurl.com/world')
+      .to_return(body: '<h1>This is not JSON</h1> (obviously)',
+                 headers: { 'Content-Type' => 'application/json' })
+    expect { subject.new(endpoint: 'https://www.myurl.com').world }
+      .to raise_error(Redd::JSONError)
   end
 end

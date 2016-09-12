@@ -42,11 +42,11 @@ module Redd
     # @return [Hash]
     # @see #request
     def json(*args)
-      response = request(*args).body.to_s
+      response_body = request(*args).body.to_s
       begin
-        JSON.parse(response, symbolize_names: true)
+        JSON.parse(response_body, symbolize_names: true)
       rescue JSON::ParserError => e
-        raise JSONError.new(e.message, response.env)
+        raise JSONError.new(e.message, response_body)
       end
     end
 
