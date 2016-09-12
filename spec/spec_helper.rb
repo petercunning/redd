@@ -2,6 +2,7 @@
 
 require 'webmock/rspec'
 require 'simplecov'
+require 'coveralls'
 require 'uri'
 
 $LOAD_PATH.unshift File.expand_path(File.dirname(__FILE__), '../lib')
@@ -11,8 +12,8 @@ require 'redd'
 # makes a request to an unknown path.
 WebMock.disable_net_connect!
 
-# Fails if the coverage metrics fall since the last test run.
-SimpleCov.refuse_coverage_drop
+# Start up test coverage reporting.
+Coveralls.wear!
 SimpleCov.start
 
 # Initialize a model with a stubbed client.
