@@ -11,7 +11,7 @@ end
 
 describe Redd::ResponseError do
   describe '#retryable?' do
-    context 'when the API call is not found (403)' do
+    context 'when the API call is not allowed (403)' do
       it 'should not be retryable' do
         error = Redd::ResponseError.new(response_with_code(403), '')
         expect(error).not_to be_retryable
