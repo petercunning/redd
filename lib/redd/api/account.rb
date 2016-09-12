@@ -9,7 +9,7 @@ module Redd
     class Account < API
       # @return [User] the currently logged-in user
       def me
-        model(:user, :get, 'api/v1/me')
+        model(User, :get, 'api/v1/me')
       end
     end
   end

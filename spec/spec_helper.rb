@@ -13,7 +13,10 @@ require 'redd'
 WebMock.disable_net_connect!
 
 # Start up test coverage reporting.
-Coveralls.wear!
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
 SimpleCov.start
 
 # Initialize a model with a stubbed client.

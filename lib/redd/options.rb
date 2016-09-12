@@ -44,6 +44,8 @@ module Redd
         .reject { |_, v| v.nil? }
     end
 
+    # @param other [Options] the object to check for equality
+    # @return if the other Options object was semantically equal to this one
     def ==(other)
       other.is_a?(self.class) && to_h == other.to_h
     end

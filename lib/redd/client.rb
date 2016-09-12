@@ -56,7 +56,7 @@ module Redd
     # @see #request
     def model(type, *args)
       # FIXME: convert snake case to pascal case, not just do a #capitalize.
-      Redd.const_get(camelize(type)).new(self, json(*args))
+      type.new(self, json(*args))
     end
   end
 end
